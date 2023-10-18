@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Lexend+Deca&display=swap');
+
+body, html, button, input{
+  font-family: Lexend Deca, sans-serif;
+  color: #eee;
+}
+
+body, html{
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+background-image: url("https://img.freepik.com/free-photo/dark-black-abstract-background-with-wood-chips_24972-208.jpg?w=740&t=st=1697570895~exp=1697571495~hmac=bf28ca3608903e62addab68f210b17306134a5f9fae9ff0721c0a9253bdd8444");
+}
+
+.checkout-loading{
+  overflow:hidden;
+  text-align: center;
+  width: 400px;
+  height: 240px;
+  position: absolute;
+  top:0;left:0;right:0;bottom:0;
+  margin: auto;
+  background: #232329;
+  border-radius: 12px;
+  box-shadow: 0px 4px 13px rgba(0,0,0,.2), 0px 3px 3px rgba(0,0,0,.3);
+  animation: slideIn 1.5s ease;
+}
+
+.checkout-head{
+  overflow:hidden;
+  line-height: 50px;
+  width: 100%;
+  font-size: 24px;
+  box-sizing: border-box;
+  height: 110px;
+  text-align: right;
+  padding: 30px;
+  background: linear-gradient(to right, #DA4453, #f80759);
+}
+
+.shopping-icon{
+  height: 170px;
+  margin-top: -60px;
+  margin-left: -50px;
+  transform: rotate(-25deg);
+  float: left;
+}
+
+.price{
+  width: 100%;
+  height: 30px;
+  font-size: 16px;
+  line-height: 30px;
+  color: rgba(255,255,255,.25);
+}
+
+.payment-method{
+  width: 100%;
+  height: 50px;
+  font-size: 18px;
+  border: none;
+  background: rgba(255,255,255,.05);
+  transition: .1s ease;
+}
+
+.payment-method:hover{
+  cursor: pointer;
+  background: rgba(255,255,255,.1);
+}
+
+.payment-method:focus{
+  outline: none;
+}
+a{
+    text-decoration: none;
+    color: white;
+}
+@keyframes slideIn {
+            0% {
+                transform: translateX(-100%);
+            }
+            100% {
+                transform: translateX(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="checkout-loading">
+        <div class="checkout-head">
+          <svg class="shopping-icon" viewBox="0 0 24 24">
+          <path fill="#ffffff55" d="M17,18A2,2 0 0,1 19,20A2,2 0 0,1 17,22C15.89,22 15,21.1 15,20C15,18.89 15.89,18 17,18M1,2H4.27L5.21,4H20A1,1 0 0,1 21,5C21,5.17 20.95,5.34 20.88,5.5L17.3,11.97C16.96,12.58 16.3,13 15.55,13H8.1L7.2,14.63L7.17,14.75A0.25,0.25 0 0,0 7.42,15H19V17H7C5.89,17 5,16.1 5,15C5,14.65 5.09,14.32 5.24,14.04L6.6,11.59L3,4H1V2M7,18A2,2 0 0,1 9,20A2,2 0 0,1 7,22C5.89,22 5,21.1 5,20C5,18.89 5.89,18 7,18M16,11L18.78,6H6.14L8.5,11H16Z" />
+      </svg>
+          Payment
+        </div>
+        <div class="price">Select a payment mode</div>
+        <button class="payment-method">
+          <a href="/payment"> Online payment
+        </a> 
+          </button>
+       <a href="/thanks"> <button class="payment-method" id="cod">
+          Cash on Delivey
+        </button>
+      </a>
+        
+      </div>
+      <script>
+           const submitButton = document.getElementById("cod");
+    submitButton.addEventListener("click", function() {
+       
+        alert("Order placed !Thanks for Shopping!");
+    });
+      </script>
+</body>
+</html>

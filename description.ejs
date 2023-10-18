@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= pageTitle %></title>
+  
+</head>
+
+<body>
+    <div class="header">
+        <h1>Description Page</h1>
+        <div class="icons">
+            <div class="wishlist-icon">
+                <i class="fa-regular fa-heart" style="color: #c60c3a;"></i> <!-- Font Awesome heart icon -->
+                <span> Wishlist</span>
+            </div>
+            <div class="cart-icon">
+                <i class="fas fa-shopping-cart"></i> <!-- Font Awesome cart icon -->
+                <span> Cart</span>
+            </div>
+        </div>
+    </div>
+    
+    <style>
+        .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #f2f2f2;
+}
+
+.icons {
+    display: flex;
+    align-items: center;
+}
+
+.cart-icon {
+    margin-left: 20px;
+}
+
+/* Assuming you have Font Awesome and its styles included in your project */
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .product-container {
+            display: flex;
+            padding: 20px;
+        }
+
+        .product-image img {
+            width: 300px;
+            height: 400px;
+            object-fit: cover;
+            margin-right: 20px;
+        }
+
+        .cart-list {
+            list-style: none;
+            padding: 0;
+        }
+        .action-button {
+    background-color: #4CAF50; /* Green background */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-top: 10px;
+    cursor: pointer;
+
+}
+
+/* Position the buttons to the right */
+.product-description {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.action-button {
+    margin-left: auto;
+}
+    </style>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+ 
+    <div class="product-container">
+        <div class="product-image">
+            <img src="https://cdnd.lystit.com/photos/0b3f-2016/02/01/nike-cool-greyblack-dri-fit-training-t-shirt-gray-product-0-970012846-normal.jpeg" alt="Nike Jersey">
+        </div>
+       
+        <div class="product-description">
+            <h1><%= product %></h1>
+           <h2>Price : Rs 2000</h2>
+
+           <hr>
+           <div>
+         
+           <h2>Select size</h2>
+           <select id="sizeDropdown">
+            <option value="XS">XS</option>
+            <option value="S">S</option>
+            <option value="M">M</option>
+            <option value="L">L</option>
+            <option value="XL">XL</option>
+        </select>
+        <br>
+        <br>
+
+        <button id="addToCartBtn" class="action-button" onclick="addToCart('<%= product %>')">Add to Cart</button>
+
+        <!-- Add to Wishlist Button -->
+        <button id="addToWishlistBtn" class="action-button" onclick="addToWishlist('<%= pageTitle %>')">Add to Wishlist</button>
+        
+    </div>
+            <p>Product details</p>
+          Material Composition : 75% Cotton, 15% Nylon, 10% Wool <br><br>
+            
+                PatternSolid<br><br>
+             Fit Type : Skinny Fit<br><br>
+            Sleeve Type : Half Sleeve<br><br>
+               Collar Style : Club Collar<br><br>
+               LengthStandard Length<br><br>
+                Country of OriginVietnam</p>
+            
+        </div>
+    </div>
+  
+    <script>
+            const addToCartBtn = document.getElementById('addToCartBtn');
+
+addToCartBtn.addEventListener('click', function() {
+   alert(`Product is added to the cart!`);
+});
+      const wishlistIcon = document.querySelector('.wishlist-icon');
+        const cartIcon = document.querySelector('.cart-icon');
+
+        wishlistIcon.addEventListener('click', function() {
+            window.location.href = '/wish';
+        });
+
+
+        cartIcon.addEventListener('click', function() {
+            window.location.href = '/cart';
+        });
+        function addToCart(product) {
+            fetch('/cart')
+                .then(response => response.json())
+                .then(data => {
+                    alert(`"${product}" is added to the cart!`);
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+        }
+        function addToWishlist(product) {
+        alert(`Dumbell is added to your wishlist ❤️`);
+    }
+        </script>
+</body>
+
+</html>

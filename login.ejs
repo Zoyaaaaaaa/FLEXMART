@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Ariel', sans-serif;
+            color: white;
+        }
+
+        body {
+            background-color: black;
+ background-image: url("https://img.freepik.com/free-photo/close-up-film-texture-details_23-2149368371.jpg?w=740&t=st=1697566862~exp=1697567462~hmac=ba77acffa167f2927608ff2184a6e600392eb8fd1564ae06601a1d863305a70b");
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+           
+            background-size: cover;
+            background-position: center;
+            min-height: 100vh;
+        }
+
+        .wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            min-height: 80vh;
+            width: 485px;
+            border: 2px solid rgba(0, 0, 0, 0.2);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            /* background-color:rgb(250, 80, 80); */
+            color: white;
+            background-color: black;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 40px 40px;
+            animation: slideDown 2s ease;
+        }
+
+        .wrapper form {
+            background-color: black;
+            /* background-color:rgba(0, 0, 0, 0.2); */
+            width: 100%;
+        }
+
+        .wrapper h1 {
+            font-family: 'Ariel';
+            font-size: 36px;
+            font-weight: lighter;
+            text-align: center;
+            color: #e32a1d; 
+        }
+
+        .input-box {
+            display: flex;
+            width: 100%;
+            position: relative;
+            height: 50px;
+            margin: 15px 0;
+        }
+
+        .norm {
+            width: 85%;
+            height: 100%;
+            background: transparent;
+            font-size: 16px;
+            color: white;
+            padding: 20px 45px 20px 20px;
+            border: none;
+            margin: 0px 40px 40px;
+            outline: none;
+            border: 2px solid rgb(184, 184, 184);
+            border-radius: 10px;
+        }
+
+        .input-box input::placeholder {
+            color: white;
+        }
+
+        .input-box i {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 20px;
+            color: #e32a1d; /* Red color for icons */
+        }
+
+        .btn {
+            display: flex;
+            flex-wrap: wrap;
+            width: 85%;
+            margin-left: 40px;
+            height: 45px;
+            background: #e32a1d; /* Red color for the button background */
+            border: none;
+            outline: none;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            align-items: center;
+            padding-left: 168px;
+            font-size: 16px;
+            color: white; /* White text color for the button */
+            font-weight: 600;
+        }
+
+        .register-link {
+            font-size: 14.5px;
+            margin: 20px 120px 15px;
+        }
+
+        .register-link p a {
+            color: rgb(28, 199, 80);
+            text-decoration: underline;
+            font-weight: 600;
+        }
+
+        .register-link p a:hover {
+            text-decoration: underline;
+        }
+
+        h1 {
+            color: #e32a1d; /* Red color for h1 */
+        }
+
+        a {
+            color:white;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        h1 {
+            margin-top: 17px;
+        }
+        @keyframes slideDown {
+            0% {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+      
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <form method="post" action="/login">
+            <h1>Login</h1>
+            <div class="input-box">
+                <input type="email" placeholder="Email" class="norm" id="email" name="username" required>
+                <i class='bx bxs-user'></i>
+            </div>
+            <div class="input-box">
+                <input type="password" placeholder="Password" minlength="8" required id="pass" name="password" class="norm">
+                <i class='bx bxs-lock-alt'></i>
+            </div>
+            <button type="submit" class="btn" name="submit">Login</button>
+            <div class="register-link">
+                <p>Don't have an account? <a href="/signup">Sign up</a></p>
+            </div>
+        </form>
+    </div>
+    
+</body>
+</html>
+

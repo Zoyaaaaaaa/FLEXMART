@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI Calculator</title>
+    <style>
+ /* Reset some default styles */
+body, h2, label {
+    margin: 0;
+    padding: 0;
+}
+
+/* Style the body background and center the container */
+body {
+    background-color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+
+.container {
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 3px;
+    padding: 30px;
+    text-align: center;
+    width: 500px;
+    margin: 0 auto; 
+}
+
+
+h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #ff0000; /* Red */
+}
+
+/* Style the labels and inputs */
+label {
+    display: block;
+    margin-top: 15px;
+    font-weight: bold;
+    color: #000; /* Black */
+}
+
+input[type="text"],
+input[type="number"] {
+    width: 90%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Style the gender options */
+.gender {
+    display: flex;
+    /* justify-content: center; */
+    padding: 1px;
+}
+
+
+.calculate {
+    background-color: #ff0000; /* Red */
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+
+.result {
+    margin-top: 20px;
+    font-size:20px ;
+    color: #0f0e0e; 
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 10px; 
+    }
+
+    h2 {
+        font-size: 20px; 
+    }
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box">
+            <h2>BMI Calculator</h2>
+            <div class="content">
+                <div class="input">
+                    <label for="age">Age</label>
+                    <input type="text" class="text-input" id="age" autocomplete="off" required />
+                </div>
+
+                <div class="gender">
+                    <label class="container">
+                        <input type="radio" name="radio" id="m">
+                        <span class="checkmark"></span>
+                        <p class="text">Male</p>
+                    </label>
+                    <label class="container">
+                        <input type="radio" name="radio" id="f">
+                        <span class="checkmark"></span>
+                        <p class="text">Female</p>
+                    </label>
+                </div>
+
+                <div class="containerHW">
+                    <div class="inputH">
+                        <label for="height">Height (cm)</label>
+                        <input type="number" id="height" required>
+                    </div>
+
+                    <div class="inputH">
+                        <label for="weight">Weight (kg)</label>
+                        <input type="number" id="weight" required>
+                    </div>
+                </div>
+
+                <button class="calculate" id="submit" onclick="calculate();">Calculate BMI</button>
+            </div>
+
+            <div class="result">
+                <p>Your BMI :</p>
+                <div id="result">00.00</div>
+                <p class="comment"></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for Error Message -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p id="modalText"></p>
+        </div>
+    </div>
+
+    <script>
+            var age = document.getElementById("age");
+var height = document.getElementById("height");
+var weight = document.getElementById("weight");
+var male = document.getElementById("m");
+var female = document.getElementById("f");
+var form = document.getElementById("form");
+let resultArea = document.querySelector(".comment");
+
+modalContent = document.querySelector(".modal-content");
+modalText = document.querySelector("#modalText");
+var modal = document.getElementById("myModal");
+var span = document.getElementsByClassName("close")[0];
+
+
+function calculate(){
+ 
+  if(age.value=='' || height.value=='' || weight.value=='' || (male.checked==false && female.checked==false)){
+    modal.style.display = "block";
+    modalText.innerHTML = `All fields are required!`;
+
+  }else{
+    countBmi();
+  }
+
+}
+
+
+function countBmi(){
+  var p = [age.value, height.value, weight.value];
+  if(male.checked){
+    p.push("male");
+  }else if(female.checked){
+    p.push("female");
+  }
+
+  var bmi = Number(p[2])/(Number(p[1])/100*Number(p[1])/100);
+      
+  var result = '';
+  if(bmi<18.5){
+    result = 'Underweight';
+     }else if(18.5<=bmi&&bmi<=24.9){
+    result = 'Healthy';
+     }else if(25<=bmi&&bmi<=29.9){
+    result = 'Overweight';
+     }else if(30<=bmi&&bmi<=34.9){
+    result = 'Obese';
+     }else if(35<=bmi){
+    result = 'Extremely obese';
+     }
+
+
+
+resultArea.style.display = "block";
+document.querySelector(".comment").innerHTML = `You are <span id="comment">${result}</span>`;
+document.querySelector("#result").innerHTML = bmi.toFixed(2);
+
+}
+
+
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+    </script>
+</body>
+</html>

@@ -1,0 +1,192 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+  
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Equipments</title>
+        <style>
+       
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #efe9e9;
+        }
+
+        header {
+            background-color: #FF948F;
+            color: rgb(9, 8, 8);
+            padding: 1em;
+            text-align: center;
+        }
+
+        .product-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 20px;
+        }
+
+        .product {
+            background-color: rgb(227, 124, 124);
+            border: 1px solid #ddd;
+            padding: 20px;
+            margin: 10px;
+            max-width: 300px;
+            text-align: center;
+        }
+
+        button {
+            background-color: #1cac1e;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0f0804;
+        }
+    </style>
+</head>
+
+
+
+  <title>Gym Equipment Store</title>
+</head>
+<body>
+
+  <h2>Equipments</h2>
+
+  <div id="filters">
+    <label>
+      <input type="checkbox" class="filter-checkbox" data-category="cardio"> Cardio Equipment
+    </label>
+
+    <label>
+      <input type="checkbox" class="filter-checkbox" data-category="weights"> Weight Training
+    </label>
+
+    <label>
+      <input type="checkbox" class="filter-checkbox" data-category="accessories"> Accessories
+    </label>
+
+    <label>
+      <input type="checkbox" class="filter-checkbox" data-category="all"> Show All
+    </label>
+  </div>
+
+  <div id="item-list">
+    <div class="item" data-category="weights"><div class="product">
+            <img src="https://cdn-images.cure.fit/www-curefit-com/image/upload/fl_progressive,f_auto,q_auto:eco,w_300,h_400,ar_0.75,c_fill,q_70/dpr_1.5/cultgear-content/cv4GCjuUxcgr5AABQAt1qdCQ" alt="Product 1" width="250" height="250">
+            <h2>5kg Dumbell</h2>
+            <p>The Flexibell is the latest innovation in Home Fitness, replacing multiple sets of weights. 1 Flexibell is equivalent to 15 different dumbbells. The product has easy-to-use selection dials for adjusting weights.</p>
+            
+           
+            <p>Rs.3,000</p>
+            <button onclick="addToCart(1)">Add to Cart</button>
+        </div>
+</div>
+    <div class="item" data-category="weights"><div class="product">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6oy1_H8eTzT5xuqoS5LgUEIhU_neT_yAOIraoGbDlWvw9BL3Nr86NVJ10jYWydlHdBAw&usqp=CAU" alt="barbell" width="250" height="250">
+            <h2>kettlebell</h2>
+            <p>Kettlebell exercises often involve several muscle groups at once, making them a highly effective way to give your arms, legs, and abs a great workout in a short amount of time. They can improve both your strength and your cardiovascular fitness.</p>
+            <p>Rs2900</p>
+            <button onclick="addToCart(2)">Add to Cart</button>
+        </div></div>
+    <div class="item" data-category="weights"><div class="product">
+            <img src="https://m.media-amazon.com/images/I/41NZyBUa-lL.jpg" alt="barbell" width="250" height="250">
+            <h2>barbell</h2>
+            <p>No other equipment allows such dramatic improvements in overall strength. Start out using a weight you’re comfortable with, increase the load every week and watch your numbers fly up.</p>
+            <p>Rs2000</p>
+            <button onclick="addToCart(2)">Add to Cart</button>
+        </div></div>
+    <div class="item" data-category="cardio"><div class="product">
+            <img src="https://m.media-amazon.com/images/I/61VqnE79V2L.jpg" alt="barbell" width="250" height="250">
+            <h2>jumprope</h2>
+            <p>Skipping rope is the best cardio exercise as it increases the heart rate. This will significantly reduce the risk of heart diseases and stroke.</p>
+            <p>Rs800</p>
+            <button onclick="addToCart(2)">Add to Cart</button>
+        </div></div>
+    
+    <div class="item" data-category="accessories"><div class="product">
+            <img src="https://www.theflexnest.com/cdn/shop/products/Benchfinal_1080x.jpg?v=1639229095" alt="barbell" width="250" height="250">
+            <h2>benches</h2>
+            <p>Sturdy,safeand made of leather   </p>
+            <p>Rs80,000</p>
+            <button onclick="addToCart(2)">Add to Cart</button>
+        </div></div>
+  </div>
+  <div class="item" data-category="accessories"><div class="product">
+            <img src="https://m.media-amazon.com/images/I/71N2N1akPwL._AC_UL480_FMwebp_QL65_.jpg" alt="barbell" width="250" height="250">
+            <h2>pull up bars</h2>
+            <p>Sturdy,safe and high durability  </p>
+            <p>Rs40,000</p>
+            <button onclick="addToCart(2)">Add to Cart</button>
+        </div></div>
+  <div class="item" data-category="accessories"><div class="product">
+            <img src="https://img.fruugo.com/product/5/57/622670575_max.jpg" alt="barbell" width="250" height="250">
+            <h2>core sliders</h2>
+            <p>Sturdy,safe and high durability  </p>
+            <p>Rs400</p>
+            <button onclick="addToCart(2)">Add to Cart</button>
+        </div></div>
+  <div class="item" data-category="accessories "><div class="product">
+            <img src="https://m.media-amazon.com/images/I/51tyWEVlB4L._AC._SR360,460.jpg" alt="barbell" width="250" height="250">
+            <h2>Racks and cages </h2>
+            <p>Sturdy,safe and high durability  </p>
+            <p>Rs20,000</p>
+            <button onclick="addToCart(2)">Add to Cart</button>
+        </div></div>
+        <div class="item" data-category="cardio"><div class="product">
+            <img src="https://v.fastcdn.co/u/db28084b/61790081-0-Smart-run-1.png" alt="barbell" width="250" height="250">
+            <h2>treadmill</h2>
+            <p>Sturdy,safe and high durability  </p>
+            <p>Rs20,000</p>
+            <button onclick="addToCart(2)">Add to Cart</button>
+        </div></div>
+        <div class="item" data-category="cardio"><div class="product">
+            <img src="https://cdn-images.cure.fit/www-curefit-com/image/upload/fl_progressive,f_auto,q_auto:eco,w_500,ar_3:4,c_fill/dpr_2/cultgear-content/gZNKESJuEE5QqZFaCVeZjx8h" alt="barbell" width="250" height="250">
+            <h2>Assault bike</h2>
+            <p>Sturdy,safe and high durability  </p>
+            <p>Rs20,000</p>
+            <button onclick="addToCart(2)">Add to Cart</button>
+        </div></div>
+        <div class="item" data-category="cardio"><div class="product">
+            <img src="https://5.imimg.com/data5/SELLER/Default/2023/5/308380990/DQ/NO/ND/60633516/stair-stepper-machine-500x500.png" alt="barbell" width="250" height="250">
+            <h2>Step machine  </h2>
+            <p>Sturdy,safe and high durability  </p>
+            <p>Rs20,000</p>
+            <button onclick="addToCart(2)">Add to Cart</button>
+        </div></div>
+
+  <script>
+    // Get all checkboxes
+    const checkboxes = document.querySelectorAll('.filter-checkbox');
+
+    // Add event listener to each checkbox
+    checkboxes.forEach(checkbox => {
+      checkbox.addEventListener('change', function () {
+        // Get the category associated with the checkbox
+        const category = this.dataset.category;
+
+        // Get all items
+        const items = document.querySelectorAll('.item');
+
+        // Toggle visibility based on checkbox state
+        items.forEach(item => {
+          if (category === 'all' || item.dataset.category === category) {
+            item.style.display = this.checked ? 'block' : 'none';
+          }
+        });
+      });
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= pageTitle %></title>
+  
+</head>
+
+<body>
+    <div class="header">
+        <h1>Description Page</h1>
+        <div class="icons">
+            <div class="wishlist-icon">
+                <i class="fa-regular fa-heart" style="color: #c60c3a;"></i> <!-- Font Awesome heart icon -->
+                <span> Wishlist</span>
+            </div>
+            <div class="cart-icon">
+                <i class="fas fa-shopping-cart"></i> <!-- Font Awesome cart icon -->
+                <span> Cart</span>
+            </div>
+        </div>
+    </div>
+    
+    <style>
+        .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #f2f2f2;
+}
+
+.icons {
+    display: flex;
+    align-items: center;
+}
+
+.cart-icon {
+    margin-left: 20px;
+}
+
+/* Assuming you have Font Awesome and its styles included in your project */
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .product-container {
+            display: flex;
+            padding: 20px;
+        }
+
+        .product-image img {
+            width: 300px;
+            height: 400px;
+            object-fit: cover;
+            margin-right: 20px;
+        }
+
+        .cart-list {
+            list-style: none;
+            padding: 0;
+        }
+    </style>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+ 
+    <div class="product-container">
+        <div class="product-image">
+            <img src="https://cdnd.lystit.com/photos/0b3f-2016/02/01/nike-cool-greyblack-dri-fit-training-t-shirt-gray-product-0-970012846-normal.jpeg" alt="Nike Jersey">
+        </div>
+       
+        <div class="product-description">
+            <h1>Nike Men's Grey Jersey</h1>
+            <p>Description of the product goes here.</p>
+            <button id="addToCartBtn" onclick="addToCart('<%= pageTitle %>')">Add to Cart</button>
+
+            <!-- Add to Wishlist Button -->
+            <button id="addToWishlistBtn" onclick="addToWishlist('<%= pageTitle %>')">Add to Wishlist</button>
+            
+        </div>
+    </div>
+  
+    <script>
+      const wishlistIcon = document.querySelector('.wishlist-icon');
+        const cartIcon = document.querySelector('.cart-icon');
+
+        // Redirect to the wishlist page when the wishlist icon is clicked
+        wishlistIcon.addEventListener('click', function() {
+            window.location.href = '/wish';
+        });
+
+        // Redirect to the cart page when the cart icon is clicked
+        cartIcon.addEventListener('click', function() {
+            window.location.href = '/cart';
+        });
+
+        function addToCart(product) {
+    window.location.href = `/addToCart?product=${product}`;
+  }
+
+  function addToWishlist(product) {
+    window.location.href = `/addToWishlist?product=${product}`;
+  }
+        </script>
+</body>
+
+</html>

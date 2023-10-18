@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= pageTitle %></title>
+  
+</head>
+
+<body>
+    <div class="header">
+        <h1>Description Page</h1>
+        <div class="icons">
+            <div class="wishlist-icon">
+                <i class="fa-regular fa-heart" style="color: #c60c3a;"></i> <!-- Font Awesome heart icon -->
+                <span> Wishlist</span>
+            </div>
+            <div class="cart-icon">
+                <i class="fas fa-shopping-cart"></i> <!-- Font Awesome cart icon -->
+                <span> Cart</span>
+            </div>
+        </div>
+    </div>
+    
+    <style>
+           .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #f2f2f2;
+}
+.product-container {
+            display: flex;
+            padding: 20px;
+            padding-left: 120px;
+            padding-right: 100px;
+        }
+
+.icons {
+    display: flex;
+    align-items: center;
+}
+
+.cart-icon {
+    margin-left: 20px;
+}
+
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .product-container {
+            display: flex;
+            padding: 20px;
+        }
+
+        .product-image img {
+            width: 400px;
+            height: 500px;
+            object-fit: cover;
+            margin-right: 20px;
+            padding-left: 120px;
+        }
+       
+
+        .cart-list {
+            list-style: none;
+            padding: 0;
+        }
+        .action-button {
+    background-color: #4CAF50; 
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-top: 10px;
+    cursor: pointer;
+
+}
+.product-description{
+            padding-left: 120px;
+        }
+
+
+.product-description {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+select{
+    height: 40px;
+    width: 80px;
+}
+.action-button {
+    margin-left: auto;
+}
+    </style>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+ 
+    <div class="product-container">
+        <div class="product-image">
+            <img src="https://m.media-amazon.com/images/I/61d6UfDdpsL._SL1200_.jpg" alt="proyien powder">
+        </div>
+       
+        <div class="product-description">
+            <h1>Bigmuscles Protein Powder</h1>
+           <h2>Price : Rs 375</h2>
+
+           <hr>
+           <div>
+         
+           <h2>Select Amount of protien</h2>
+           <select id="sizeDropdown">
+            <option value="75g"> 75g</option>
+            <option value="100g">100g</option>
+            <option value="250g">250g</option>
+            <option value="500g">500g</option>
+            <option value="1kg">1kg</option>
+        </select>
+        <br>
+        <br>
+
+       <p id="outOfStockMessage" style="color: red; display: none;">Sorry, product out of stock</p>
+        <button id="addToCartBtn" class="action-button">Add to Cart</button>
+        <br>
+        <!-- Add to Wishlist Button -->
+        <button id="addToWishlistBtn" class="action-button" onclick="addToWishlist('<%= pageTitle %>')">Add to Wishlist</button>
+        
+    </div><p>Product details <br><br>
+    Premium Gold Whey protein is made using the world's finest quality<br> 
+      of Whey Protein Isolate & Whey protein concentrate.<br>
+      Serves 25gm of High-quality protein per serving of 35gms.<br>
+      Whey Protein Isolate is the main ingredient to ensure maximum<br>
+       absorption for muscle repair and recovery.<br>
+      100% Vegetarian, Gluten-Free, and Soy free</p>
+            
+        </div>
+    </div>
+  
+    <script>
+        const addToCartBtn = document.getElementById('addToCartBtn');
+         const wishlistIcon = document.querySelector('.wishlist-icon');
+    const cartIcon = document.querySelector('.cart-icon');
+    const outOfStockMessage = document.getElementById('outOfStockMessage');
+        let clickCounter = 0;
+        const maxClicks = 3;
+    // Redirect to the wishlist page when the wishlist icon is clicked
+    wishlistIcon.addEventListener('click', function() {
+        window.location.href = '/wish';
+    });
+    const addToWishlistBtn = document.getElementById('addToWishlistBtn');
+    // Redirect to the cart page when the cart icon is clicked
+    cartIcon.addEventListener('click', function() {
+        window.location.href = '/cart';
+    });
+    addToCartBtn.addEventListener('click', function() {
+            if (clickCounter >= maxClicks) {
+                outOfStockMessage.style.display = 'block';
+                addToCartBtn.disabled = true;
+            } else {
+                clickCounter++;
+                addToCart('<%= product %>');
+            }
+        });
+       
+            addToCartBtn.addEventListener('click', function() {
+   alert(`Product is added to the cart!`);
+});
+    
+    function addToCart(product) {
+        fetch('/Cart')
+            .then(response => response.json())
+            .then(data => {
+                alert(`"${product}" is added to the cart!`);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+    }
+    
+    function addToWishlist(product) {
+        alert(`Protien powder is added to your wishlist ❤️`);
+    }
+
+    
+    </script>
+</body>
+
+</html>
